@@ -24,7 +24,7 @@ import {
 import Grid from '@mui/material/Grid2';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { LineChart, BarChart, TableView } from "./DataVisualizationComponents.tsx"; // Import components for visualization
+import { LineChart, BarChart, Calendar } from "./DataVisualizationComponents.tsx"; // Import components for visualization
 
 
 // Define the type of mockData using an index signature
@@ -307,7 +307,8 @@ const fetchSimulationData = async () => {
             onChange={(e) => setViewType(e.target.value)}
           >
             <MenuItem value="Graph">Graph</MenuItem>
-            <MenuItem value="Table">Table</MenuItem>
+            <MenuItem value="Table">Calandar</MenuItem>
+            <MenuItem value="Histogram">BarChart</MenuItem>
           </Select>
         </FormControl>
 
@@ -387,7 +388,7 @@ const fetchSimulationData = async () => {
       <Box sx={{ mt: 4, p: 3, border: "1px solid #ddd", borderRadius: 2, bgcolor: "#fff" }}>
         {viewType === "Graph" && <LineChart data={data} parameter={parameter} />}
         {viewType === "Histogram" && <BarChart data={data} parameter={parameter} />}
-        {viewType === "Table" && <TableView data={data} parameter={parameter} />}
+        {viewType === "Table" && <Calendar data={data} parameter={parameter} />}
       </Box>
 
       {/* Refresh Button */}
